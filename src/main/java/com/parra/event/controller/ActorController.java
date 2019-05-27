@@ -1,5 +1,7 @@
 package com.parra.event.controller;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +50,12 @@ public class ActorController {
 			}
 		}
 
+	}
+	
+	@RequestMapping(value = "/allActors", method = RequestMethod.GET)
+	public List<Actor> getAllActor() {
+		logger.info("Inside the method getAllActors ");
+		return actorDao.getAllActors();
 	}
 	
 	
