@@ -41,7 +41,6 @@ public class EventController {
 	RepoDao repoDao;
 
 	@RequestMapping(value = "/events", method = RequestMethod.POST, consumes = "application/json")
-	@ResponseBody
 	public ResponseEntity<Event> createEvent(@RequestBody Event event) {
 		logger.info("Running creatEventy method");
 		if (eventDao.findOne(event.getId()) != null) {
@@ -68,7 +67,6 @@ public class EventController {
 	}
 	
 	@RequestMapping(value = "/events/actors", method = RequestMethod.GET, produces = "application/json")
-	@ResponseBody
 	public ResponseEntity<List<Event>> getAllEventByActorId(@RequestParam(value="id") Long id) {
 		logger.info("Running getAllEventByActorId method");
 		List<Event> listTemporalEvent = eventDao.getAllEventByActorId(id);
@@ -80,7 +78,6 @@ public class EventController {
 	}
 	
 	@RequestMapping(value = "/actors", method = RequestMethod.GET, produces = "application/json")
-	// @ResponseBody
 	public ResponseEntity<List<Actor>> countActorEvent(){
 		logger.info("Running countActorEvent method");
 		Map<Actor,Integer> eventForActorsMap = new HashMap<Actor, Integer>();
@@ -131,7 +128,6 @@ public class EventController {
 	}
 	
 	@RequestMapping(value = "/actors/streak", method = RequestMethod.GET, produces = "application/json")
-	@ResponseBody
 	public ResponseEntity<List<Actor>> countActorStreak(){
 		logger.info("Running countActorStreak method");
 		Map<Actor,Integer> eventForActorsMap = new HashMap<Actor, Integer>();

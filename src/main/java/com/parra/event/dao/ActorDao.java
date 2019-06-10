@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.parra.event.entity.Actor;
-import com.parra.event.entity.Event;
 import com.parra.event.repository.ActorRepository;
 
 @Service
@@ -36,4 +35,12 @@ public class ActorDao {
 	            .collect(Collectors.toList());
 	}
 	
+	public boolean deleteActor(Long id) {
+		try {
+			actorRepository.delete(id);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
 }
